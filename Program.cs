@@ -102,11 +102,27 @@ namespace G_NET_9_OOP06
             //            public Toaster(string brand) : base(brand) { }
             //            public override double PowerConsumption() => 800;
             //        }
-            //        a) Can you write: Appliance a = new Appliance("LG"); ? Why or why not?
+            //a) Can you write: Appliance a = new Appliance("LG"); ? Why or why not?
             //b) What is the difference between the three methods: PowerConsumption(), Status(), and Label()? Why did the designer make each one abstract, virtual, or concrete?
             //c) If you call Status() on a Toaster object, what will it return? Why?
             // ===========================================================================================
 
+            // a)
+            // no we cannot take instances from abstract classes
+
+            // b)
+            // abstract methods do not have a base implementation
+            // virtual methods can be overridden by child classes
+            // concrete methods cannot be overridden and need to have an implementation
+            
+            // PowerConsumption => it is abstract because it has no definition yet, but it will be defined but child classes
+            // Status           => it's virtual because it is overridden by its children
+            // Label            => it's a concrete method because it is the same for all child classes
+
+
+            // c)
+            // it will return "Standby" as it has a base implementation in the parent class
+            // but the child class has not overridden it yet, so it will implement the method in parent class
             #endregion
 
             #region Question 04
