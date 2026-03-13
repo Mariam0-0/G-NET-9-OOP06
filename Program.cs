@@ -26,7 +26,7 @@ namespace G_NET_9_OOP06
             // ===========================================================================================
 
             // Abstraction is the process of exposing only what the user needs and hiding how it is implemented
-            
+
             // Abstraction focuses on what an object does, while encapsulation focuses on how data is protected
             // abstraction is design level that is implemented using interfaces and abstract classes
             // encapsulation is implementation level that is implemented  using access modifiers and properties
@@ -50,6 +50,27 @@ namespace G_NET_9_OOP06
             //Q2 : What is the difference between an abstract class and an interface? Give at least four differences.When would you choose one over the other?
             // ===========================================================================================
 
+
+            // interfaces are 100% abstract
+
+            // Interfaces       ==> define rules and capabilities,
+            // Abstract classes ==> classes define identity and shared behavior
+
+            // Interfaces       ==> support multiple inheritances
+            // Abstract classes ==> doesn't support multiple inheritance since it's still a class
+
+            // Interfaces       ==> doesn't represent 'is-a' relationship
+            // Abstract classes ==> represent 'is-a' relationship
+
+            // Interfaces       ==> doesn't have any constructors or fields
+            // Abstract classes ==> can have constructors and fields like a normal class
+
+            // Interfaces       ==> loose coupling
+            // Abstract classes ==> high coupling
+
+            // When would you choose one over the other?
+            // Interfaces       ==>  when we need multiple inheritance, or when loose coupling is needed
+            // Abstract classes ==> when we need to add fields or constructors, or when we need shared code implementation
             #endregion
 
             #region Question 03
