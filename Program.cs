@@ -114,7 +114,7 @@ namespace G_NET_9_OOP06
             // abstract methods do not have a base implementation
             // virtual methods can be overridden by child classes
             // concrete methods cannot be overridden and need to have an implementation
-            
+
             // PowerConsumption => it is abstract because it has no definition yet, but it will be defined but child classes
             // Status           => it's virtual because it is overridden by its children
             // Label            => it's a concrete method because it is the same for all child classes
@@ -158,14 +158,51 @@ namespace G_NET_9_OOP06
             //            public static string ToCurrency(this double value)
             //                => $"${value:F2}";
             //        }
-            //        a) What is a partial class? Why would a developer split Calculator into two files?
-            //        b) What is a partial method? What happens if the OnCalculated() implementation in Calculator.Logging.cs is deleted — will the code still compile? Why?
+
+            //a) What is a partial class? Why would a developer split Calculator into two files?
+            //b) What is a partial method? What happens if the OnCalculated() implementation in Calculator.Logging.cs is deleted — will the code still compile? Why?
             //c) What is an extension method? What are the three rules for writing one?
             //d) What will the following code print?
             //Calculator calc = new Calculator();
             //        double result = calc.Add(19.5, 0.5);
             //        Console.WriteLine(result.ToCurrency());
             // ===========================================================================================
+
+            // a)
+            // a partial class allows a single class definition to be spilt across multiple files
+
+            // Why?
+            // - it organizes large classes
+            // - for team collaboration when working on the same class
+            // - to enable code generation automatically while customizing another file
+            // - to protect manual code when regenerating auto-code so that it won't overwrite the custom logic
+
+            // ===========================================================================================
+
+            // b)
+            // A partial method is declared in one part of a partial class and optionally implemented in another part
+
+            // if the implementation is deleted the code will compile with no problems because
+            // - partial methods are optional to implement
+            // - if not implementation is done the compiler removes the calls for that methods
+
+            // ===========================================================================================
+
+            // c)
+            // An extension method lets you add new methods to an existing type without modifying its source code,
+            // without inheritance, and without recompiling
+
+            // The 3 Rules:
+            // - the class must be static
+            // - the method must be static
+            // - the first parameter must have 'this' keyword
+            // specifying which type the method extends
+
+            // ===========================================================================================
+
+            // d)
+            // it will return $20.0,
+            // because the .ToCurrency() extension method formats the result 20.0 as $20.0
 
             #endregion
             #endregion
