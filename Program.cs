@@ -15,7 +15,7 @@ namespace G_NET_9_OOP06
     {
         static void Main(string[] args)
         {
-            
+
             #region Part 01: Theoretical Questions
 
             //Part 01 : Theoretical Questions
@@ -24,6 +24,24 @@ namespace G_NET_9_OOP06
             // ===========================================================================================
             //Q1: What is abstraction in OOP? How is it different from encapsulation? Give a real - world example(not from the session) that shows the difference between the two.
             // ===========================================================================================
+
+            // Abstraction is the process of exposing only what the user needs and hiding how it is implemented
+            
+            // Abstraction focuses on what an object does, while encapsulation focuses on how data is protected
+            // abstraction is design level that is implemented using interfaces and abstract classes
+            // encapsulation is implementation level that is implemented  using access modifiers and properties
+
+            // Example: coffee machine
+            // What you do
+            // - put the espresso powder
+            // - press the button
+            // - wait for coffee
+
+            // What you don't care about:
+            // - water heating temperature control
+            // - bean grinding coarseness settings
+            // - water pump motor cycles
+            // - steam wand thermodynamics
 
             #endregion
 
