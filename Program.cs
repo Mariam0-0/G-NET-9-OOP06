@@ -15,7 +15,7 @@ namespace G_NET_9_OOP06
     {
         static void Main(string[] args)
         {
-            
+
             #region Part 01: Theoretical Questions
 
             //Part 01 : Theoretical Questions
@@ -25,6 +25,24 @@ namespace G_NET_9_OOP06
             //Q1: What is abstraction in OOP? How is it different from encapsulation? Give a real - world example(not from the session) that shows the difference between the two.
             // ===========================================================================================
 
+            // Abstraction is the process of exposing only what the user needs and hiding how it is implemented
+
+            // Abstraction focuses on what an object does, while encapsulation focuses on how data is protected
+            // abstraction is design level that is implemented using interfaces and abstract classes
+            // encapsulation is implementation level that is implemented  using access modifiers and properties
+
+            // Example: coffee machine
+            // What you do
+            // - put the espresso powder
+            // - press the button
+            // - wait for coffee
+
+            // What you don't care about:
+            // - water heating temperature control
+            // - bean grinding coarseness settings
+            // - water pump motor cycles
+            // - steam wand thermodynamics
+
             #endregion
 
             #region Question 02
@@ -32,6 +50,27 @@ namespace G_NET_9_OOP06
             //Q2 : What is the difference between an abstract class and an interface? Give at least four differences.When would you choose one over the other?
             // ===========================================================================================
 
+
+            // interfaces are 100% abstract
+
+            // Interfaces       ==> define rules and capabilities,
+            // Abstract classes ==> classes define identity and shared behavior
+
+            // Interfaces       ==> support multiple inheritances
+            // Abstract classes ==> doesn't support multiple inheritance since it's still a class
+
+            // Interfaces       ==> doesn't represent 'is-a' relationship
+            // Abstract classes ==> represent 'is-a' relationship
+
+            // Interfaces       ==> doesn't have any constructors or fields
+            // Abstract classes ==> can have constructors and fields like a normal class
+
+            // Interfaces       ==> loose coupling
+            // Abstract classes ==> high coupling
+
+            // When would you choose one over the other?
+            // Interfaces       ==>  when we need multiple inheritance, or when loose coupling is needed
+            // Abstract classes ==> when we need to add fields or constructors, or when we need shared code implementation
             #endregion
 
             #region Question 03
@@ -63,11 +102,27 @@ namespace G_NET_9_OOP06
             //            public Toaster(string brand) : base(brand) { }
             //            public override double PowerConsumption() => 800;
             //        }
-            //        a) Can you write: Appliance a = new Appliance("LG"); ? Why or why not?
+            //a) Can you write: Appliance a = new Appliance("LG"); ? Why or why not?
             //b) What is the difference between the three methods: PowerConsumption(), Status(), and Label()? Why did the designer make each one abstract, virtual, or concrete?
             //c) If you call Status() on a Toaster object, what will it return? Why?
             // ===========================================================================================
 
+            // a)
+            // no we cannot take instances from abstract classes
+
+            // b)
+            // abstract methods do not have a base implementation
+            // virtual methods can be overridden by child classes
+            // concrete methods cannot be overridden and need to have an implementation
+
+            // PowerConsumption => it is abstract because it has no definition yet, but it will be defined but child classes
+            // Status           => it's virtual because it is overridden by its children
+            // Label            => it's a concrete method because it is the same for all child classes
+
+
+            // c)
+            // it will return "Standby" as it has a base implementation in the parent class
+            // but the child class has not overridden it yet, so it will implement the method in parent class
             #endregion
 
             #region Question 04
@@ -103,8 +158,9 @@ namespace G_NET_9_OOP06
             //            public static string ToCurrency(this double value)
             //                => $"${value:F2}";
             //        }
-            //        a) What is a partial class? Why would a developer split Calculator into two files?
-            //        b) What is a partial method? What happens if the OnCalculated() implementation in Calculator.Logging.cs is deleted — will the code still compile? Why?
+
+            //a) What is a partial class? Why would a developer split Calculator into two files?
+            //b) What is a partial method? What happens if the OnCalculated() implementation in Calculator.Logging.cs is deleted — will the code still compile? Why?
             //c) What is an extension method? What are the three rules for writing one?
             //d) What will the following code print?
             //Calculator calc = new Calculator();
@@ -112,12 +168,50 @@ namespace G_NET_9_OOP06
             //        Console.WriteLine(result.ToCurrency());
             // ===========================================================================================
 
+            // a)
+            // a partial class allows a single class definition to be spilt across multiple files
+
+            // Why?
+            // - it organizes large classes
+            // - for team collaboration when working on the same class
+            // - to enable code generation automatically while customizing another file
+            // - to protect manual code when regenerating auto-code so that it won't overwrite the custom logic
+
+            // ===========================================================================================
+
+            // b)
+            // A partial method is declared in one part of a partial class and optionally implemented in another part
+
+            // if the implementation is deleted the code will compile with no problems because
+            // - partial methods are optional to implement
+            // - if not implementation is done the compiler removes the calls for that methods
+
+            // ===========================================================================================
+
+            // c)
+            // An extension method lets you add new methods to an existing type without modifying its source code,
+            // without inheritance, and without recompiling
+
+            // The 3 Rules:
+            // - the class must be static
+            // - the method must be static
+            // - the first parameter must have 'this' keyword
+            // specifying which type the method extends
+
+            // ===========================================================================================
+
+            // d)
+            // it will return $20.0,
+            // because the .ToCurrency() extension method formats the result 20.0 as $20.0
+
             #endregion
             #endregion
 
             #region Part 02: Practical
 
             //Part 02 : Practical(Extending the Movie Ticket Booking System)
+
+            #region Requirements
 
             //In the previous assignments, you built a Movie Ticket Booking System with inheritance, polymorphism, interfaces, and object copying.Now you will apply abstraction, abstract classes, partial classes, and extension methods to improve the design.
 
@@ -149,6 +243,7 @@ namespace G_NET_9_OOP06
             //e.Call an extension method on a ticket to generate a receipt string and print it.
             //f.Call an extension method on the ticket array to calculate and print the total revenue.
             //g.Close the Cinema.
+            #endregion
 
             #region Expected Output
 
@@ -184,6 +279,47 @@ namespace G_NET_9_OOP06
             // Projector OFF
             // === Cinema Closed ===
             #endregion
+
+            #region Main
+
+            //// Ticket t = new Ticket("Test", 100); // ==> ERROR
+            //StandardTicket standard = new StandardTicket("Inception", 80, "A5");
+            //VIPTicket vip = new VIPTicket("Avengers", 200, true);
+            //IMAXTicket imax = new IMAXTicket("Dune", 130, true);
+
+            //standard.Book();
+            //vip.Book();
+            //imax.Book();
+
+            //Cinema cinema = new Cinema();
+            //cinema.OpenCinema();
+            //Console.WriteLine();
+
+            //cinema.AddTicket(standard);
+            //cinema.AddTicket(vip);
+            //cinema.AddTicket(imax);
+
+            //cinema.PrintAllTickets();
+
+            //Console.WriteLine("\n--- Polymorphism: Final Price per Ticket ---");
+            //Ticket[] tickets = new Ticket[] { standard, vip, imax };
+            //foreach (var ticket in tickets)
+            //{
+            //    Console.WriteLine($"{ticket.GetTicketType()} => Final Price: {ticket.CalculateFinalPrice():F2}");
+            //}
+
+            //Console.WriteLine("\n--- Extension Method: Receipt ---");
+            //Console.WriteLine(vip.GenerateReceipt());
+
+            //Console.WriteLine("\n--- Extension Method: Total Revenue ---");
+            //decimal totalRevenue = tickets.CalculateTotalRevenue();
+            //Console.WriteLine($"Total Revenue: {totalRevenue:F2}");
+
+            //Console.WriteLine();
+            //cinema.CloseCinema();
+
+            #endregion
+
 
             #endregion
 
