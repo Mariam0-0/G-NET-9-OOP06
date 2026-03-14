@@ -211,6 +211,8 @@ namespace G_NET_9_OOP06
 
             //Part 02 : Practical(Extending the Movie Ticket Booking System)
 
+            #region Requirements
+
             //In the previous assignments, you built a Movie Ticket Booking System with inheritance, polymorphism, interfaces, and object copying.Now you will apply abstraction, abstract classes, partial classes, and extension methods to improve the design.
 
             //User Story :
@@ -241,6 +243,7 @@ namespace G_NET_9_OOP06
             //e.Call an extension method on a ticket to generate a receipt string and print it.
             //f.Call an extension method on the ticket array to calculate and print the total revenue.
             //g.Close the Cinema.
+            #endregion
 
             #region Expected Output
 
@@ -276,6 +279,47 @@ namespace G_NET_9_OOP06
             // Projector OFF
             // === Cinema Closed ===
             #endregion
+
+            #region Main
+
+            //// Ticket t = new Ticket("Test", 100); // ==> ERROR
+            //StandardTicket standard = new StandardTicket("Inception", 80, "A5");
+            //VIPTicket vip = new VIPTicket("Avengers", 200, true);
+            //IMAXTicket imax = new IMAXTicket("Dune", 130, true);
+
+            //standard.Book();
+            //vip.Book();
+            //imax.Book();
+
+            //Cinema cinema = new Cinema();
+            //cinema.OpenCinema();
+            //Console.WriteLine();
+
+            //cinema.AddTicket(standard);
+            //cinema.AddTicket(vip);
+            //cinema.AddTicket(imax);
+
+            //cinema.PrintAllTickets();
+
+            //Console.WriteLine("\n--- Polymorphism: Final Price per Ticket ---");
+            //Ticket[] tickets = new Ticket[] { standard, vip, imax };
+            //foreach (var ticket in tickets)
+            //{
+            //    Console.WriteLine($"{ticket.GetTicketType()} => Final Price: {ticket.CalculateFinalPrice():F2}");
+            //}
+
+            //Console.WriteLine("\n--- Extension Method: Receipt ---");
+            //Console.WriteLine(vip.GenerateReceipt());
+
+            //Console.WriteLine("\n--- Extension Method: Total Revenue ---");
+            //decimal totalRevenue = tickets.CalculateTotalRevenue();
+            //Console.WriteLine($"Total Revenue: {totalRevenue:F2}");
+
+            //Console.WriteLine();
+            //cinema.CloseCinema();
+
+            #endregion
+
 
             #endregion
 
